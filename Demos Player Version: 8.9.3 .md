@@ -6,10 +6,49 @@ https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/basic/add-downlo
 https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/developer-showcase/multiple-playlists
 https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/toolbox/live-streaming
 https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/basic/live-tv
+https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/customization/custom-icons
+https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/developer-showcase/css-skin-floating-time-slider
+
 -->
 
 ### JW Player
+---
 
+#### Custom Icons
+###### This demo shows how to replace the player's default control icons with your own.
+###### For a guide on how to use CSS to replace icons in the player see our documentation on [Custom Icons](https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/css-skinning/custom-icons/) in the JW Player Developer Guide.
+
+***
+##### CSS Skin with Floating Time Slider
+###### Example of customizing the player theme with floating time slider.
+
+```javascript
+<script type="text/javascript">
+
+var player = jwplayer('player');
+
+var file = '1b02B03R';
+
+player.setup({
+	file: '//content.jwplatform.com/manifests/' + file + '.m3u8',
+	tracks: [{
+		kind: 'thumbnails',
+		file: '//content.jwplatform.com/strips/' + file + '-120.vtt'
+	}],
+	autostart: true,
+	width: '100%',
+  skin: {
+  	name: 'custom',
+		url: 'css/build.css'
+  }
+});
+
+</script>
+```
+
+
+***
+---
 #### Adding a Download Button
 
 ###### This demo includes:
