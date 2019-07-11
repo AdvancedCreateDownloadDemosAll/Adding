@@ -14,6 +14,59 @@ https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/advanced/dynamic
 ### JW Player
 ---
 
+##### Audio Streaming + Metadata
+###### Extract timed metadata from a live audio stream and use it to display information such as title, artist, and poster image.
+
+```javascript
+This demo includes:
+on('meta')
+on('error')
+```
+##### TITLE:
+##### ARTIST:
+###### *Note that an HLS stream must include timed metadata to achieve this behavior.*
+
+```javascript
+<script type="text/javascript">
+
+  var titleDiv = document.getElementById('title');
+  var artistDiv = document.getElementById('artist');
+  var imageDiv = document.getElementById('image');
+  var player = jwplayer('player');
+
+  // Set up the player with an HLS stream that includes timed metadata
+  player.setup({
+    file: 'assets/index.m3u8'
+  });
+
+  // Retrieve metadata
+  player.on('meta', function(e) {
+    if (e.metadata) {
+      var title = e.metadata.title;
+      var artist = e.metadata.artist;
+      var imageUrl = e.metadata.url;
+
+      title ? titleDiv.innerHTML = title : titleDiv.innerHTML = 'Unknown';
+      artist ? artistDiv.innerHTML = artist : artistDiv.innerHTML = 'Unknown';
+      imageUrl ? imageDiv.src = imageUrl : imageDiv.src = 'assets/jwlogo.png';
+    };
+  });
+
+  // Handle reset of player at end of content
+  player.on('error', function(e) {
+    if (e.message === 'The live stream is either down or has ended') {
+      player.load({
+        file: 'assets/index.m3u8'
+      });
+    }
+  });
+
+</script>
+```
+
+---
+
+
 #### Custom Icons
 ###### This demo shows how to replace the player's default control icons with your own.
 ###### For a guide on how to use CSS to replace icons in the player see our documentation on [Custom Icons](https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/css-skinning/custom-icons/) in the JW Player Developer Guide.
