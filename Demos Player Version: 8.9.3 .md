@@ -40,6 +40,54 @@ player.addButton(
 ***
 ---
 
+#### [Simulating Live TV](https://developer.jwplayer.com/jw-player/demos/basic/live-tv)
+###### A demo that simulates live TV. The playlist item and position are determined by system date/time.
+
+```m3u
+This demo includes:
+on('ready')
+play()
+seek()
+playlistItem()
+
+```
+
+```javascript
+<script type="text/javascript">
+
+var playerInstance = jwplayer("myElement");
+
+// In order for this demo to work, duration must be included for each playlist item.
+
+playerInstance.setup({
+    "playlist": "//content.jwplatform.com/feeds/DrqpQIzP.rss"
+});
+
+playerInstance.on('displayClick', function() {
+	playerInstance.pause();
+});
+    
+playerInstance.on('ready', function() {
+    var seconds = new Date().getMinutes()*60 + new Date().getSeconds();
+    var playlist = playerInstance.getPlaylist();
+    var offset = 0;
+
+    for (var index=0; index < playlist.length; index++) {
+        var duration = Math.round(playlist[index]['duration']);
+        if(offset + duration > seconds) {
+            playerInstance.playlistItem(index);
+            playerInstance.seek(seconds-offset);
+            break;
+        } else {
+            offset += duration;
+        }
+    }
+});
+
+</script>
+```
+***
+
 #### [Live Player](https://developer.jwplayer.com/jw-player/demos/toolbox/live-streaming) Using [Live Streaming](https://wowzaec2demo.streamlock.net/live/bigbuckbunny/playlist.m3u8)
 ###### This demo shows the JW Player's live streaming capabilities with multiple streams to choose from.
 
