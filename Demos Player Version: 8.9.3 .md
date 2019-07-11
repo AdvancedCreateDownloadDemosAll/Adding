@@ -3,6 +3,9 @@
 https://developer.jwplayer.com/jw-player/demos/
 https://developer.jwplayer.com/jw-player/docs/developer-guide/api/javascript_api_reference/
 https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/basic/add-download-button
+https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/developer-showcase/multiple-playlists
+https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/toolbox/live-streaming
+https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/basic/live-tv
 -->
 
 ### JW Player
