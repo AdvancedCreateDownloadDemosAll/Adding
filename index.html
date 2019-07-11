@@ -1,6 +1,8 @@
 <html>
   <head>
-    ...
+    <!--...-->
+    <script src="https://cdn2.logobar.tv/plugin/jw/lbplugin4jw.min.js"></script>
+
     <script src="https://www.yourdomain.com/jwplayer863/jwplayer.js"></script>
     <script>jwplayer.key="ABCdeFG123456SeVenABCdeFG123456SeVen=="></script>
    <style> 
@@ -253,8 +255,74 @@
    </style>
   </head>
   <body>
-    ...
+    
+    
+    
+    
+    <script type="text/javascript">
 
+var player = jwplayer('player');
+
+var file = '1b02B03R';
+
+player.setup({
+	file: '//content.jwplatform.com/manifests/' + file + '.m3u8',
+	tracks: [{
+		kind: 'thumbnails',
+		file: '//content.jwplatform.com/strips/' + file + '-120.vtt'
+	}],
+	autostart: true,
+	width: '100%',
+  skin: {
+  	name: 'custom',
+		url: 'css/build.css'
+  }
+});
+
+</script>
+    <script type="text/javascript">
+
+  var titleDiv = document.getElementById('title');
+  var artistDiv = document.getElementById('artist');
+  var imageDiv = document.getElementById('image');
+  var player = jwplayer('player');
+
+  // Set up the player with an HLS stream that includes timed metadata
+  player.setup({
+    file: 'assets/index.m3u8'
+  });
+
+  // Retrieve metadata
+  player.on('meta', function(e) {
+    if (e.metadata) {
+      var title = e.metadata.title;
+      var artist = e.metadata.artist;
+      var imageUrl = e.metadata.url;
+
+      title ? titleDiv.innerHTML = title : titleDiv.innerHTML = 'Unknown';
+      artist ? artistDiv.innerHTML = artist : artistDiv.innerHTML = 'Unknown';
+      imageUrl ? imageDiv.src = imageUrl : imageDiv.src = 'assets/jwlogo.png';
+    };
+  });
+
+  // Handle reset of player at end of content
+  player.on('error', function(e) {
+    if (e.message === 'The live stream is either down or has ended') {
+      player.load({
+        file: 'assets/index.m3u8'
+      });
+    }
+  });
+
+</script>
+Custom Icons
+    <script type="text/javascript">
+
+	var lbvast = ["https://vast.logobar.tv/lbvast.php?cid=90kre6s5c66m"];
+
+</script>
+  <!--  ... -->
+    
     <div id="myElement"></div>
 
     <script type="text/JavaScript">
@@ -271,6 +339,6 @@
 
     </script>
 
-    ...
+   <!-- ... -->
   </body>
 </html>
