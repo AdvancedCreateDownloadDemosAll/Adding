@@ -40,7 +40,7 @@ player.addButton(
 ***
 ---
 
-#### JW Player by using [Live Streaming](https://wowzaec2demo.streamlock.net/live/bigbuckbunny/playlist.m3u8)
+#### [Live Player](https://developer.jwplayer.com/jw-player/demos/toolbox/live-streaming) Using [Live Streaming](https://wowzaec2demo.streamlock.net/live/bigbuckbunny/playlist.m3u8)
 ###### This demo shows the JW Player's live streaming capabilities with multiple streams to choose from.
 
 ###### Utilize live streaming with JW Platform and JW Player by using JW Live as your live streaming provider, using JW Platform to manage an external live stream, or using JW Player only. [Visit our support site](https://support.jwplayer.com/customer/portal/articles/2549038-live-streaming) for a tutorial on live streaming with JW Platform and JW Player, or contact us for more information on JW Live.
