@@ -12,6 +12,7 @@ https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/advanced/dynamic
 https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/basic/audio-metadata
 https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/developer-showcase/branded-player-ads
 https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/developer-showcase/video-background
+Demos Player Background
 
 -->
 
