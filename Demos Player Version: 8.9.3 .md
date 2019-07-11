@@ -8,7 +8,7 @@ https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/toolbox/live-str
 https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/basic/live-tv
 https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/customization/custom-icons
 https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/developer-showcase/css-skin-floating-time-slider
-
+https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/advanced/dynamic-ad-playback
 -->
 
 ### JW Player
@@ -17,6 +17,83 @@ https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/developer-showca
 #### Custom Icons
 ###### This demo shows how to replace the player's default control icons with your own.
 ###### For a guide on how to use CSS to replace icons in the player see our documentation on [Custom Icons](https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/css-skinning/custom-icons/) in the JW Player Developer Guide.
+***
+#### Dynamic Ad Playback
+###### Trigger an ad to play at a selected point during a video.
+
+ 
+```javascript
+This demo includes:
+on('play')
+on('pause')
+on('complete')
+playAd(tag)
+on('adComplete')
+on('adSkipped')
+on('adPlay')
+on('adPause')
+```
+```javascript
+<script type="text/javascript">
+
+  var message = document.querySelector('.message');
+  var tag = 'assets/preroll.xml';
+  var player = jwplayer('player');
+
+  player.setup({
+    playlist: '//cdn.jwplayer.com/v2/media/hWF9vG66',
+    advertising: {
+      client: 'vast'
+    }
+  });
+
+  player.on('play',function() {
+    showButton();
+  });
+
+  player.on('pause',function() {
+    hideButton('Unpause the video to continue.');
+  });
+
+  player.on('complete', function() {
+    hideButton('Restart video to continue.');
+  });
+
+  player.on('adPlay', function() {
+    hideButton('Ad playing, please wait (or skip it)')
+  });
+
+  player.on('adPause', function() {
+    hideButton('Unpause the ad to continue.')
+  });
+
+  player.on('adSkipped', function() {
+    showButton();
+  });
+
+  player.on('adComplete', function() {
+    showButton();
+  });
+
+  function triggerAd() {
+    player.playAd(tag);
+  };
+
+  function showButton() {
+    message.innerHTML = 'Play an Ad';
+    message.classList.add('button');
+    message.addEventListener('click', triggerAd);
+  };
+
+  function hideButton(messageText) {
+    message.innerHTML = messageText;
+    message.classList.remove('button');
+    message.removeEventListener('click', triggerAd);
+  };
+
+</script>
+```
+
 
 ***
 ##### CSS Skin with Floating Time Slider
@@ -85,7 +162,7 @@ player.addButton(
 #### [Simulating Live TV](https://developer.jwplayer.com/jw-player/demos/basic/live-tv)
 ###### A demo that simulates live TV. The playlist item and position are determined by system date/time.
 
-```m3u
+```javascript
 This demo includes:
 on('ready')
 play()
