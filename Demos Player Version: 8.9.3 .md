@@ -9,11 +9,65 @@ https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/basic/live-tv
 https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/customization/custom-icons
 https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/developer-showcase/css-skin-floating-time-slider
 https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/advanced/dynamic-ad-playback
+https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/basic/audio-metadata
+https://github.com/jwplayer/jwdeveloper-demos/tree/master/demos/developer-showcase/branded-player-ads
+
+
 -->
 
 ### JW Player
 ---
 
+##### Branded Player Advertising
+###### A demo of LogoBar's branded player ads and advanced event tracking capabilities. The LogoBar plugin uses JW Player's CSS Skinning model to insert branding and ad creatives.
+
+
+```js
+This demo includes:
+on('time')
+on('seeked')
+on('seek')
+on('pause')
+on('play')
+on('fullscreen')
+on('resize')
+on('firstFrame')
+on('adImpression')
+on('adComplete')
+```
+******LogoBar is a patented digital advertising technology that brands components of streaming media players, and empowers marketers to interact with audiences while a video is playing without disrupting or delaying the content they are viewing. LogoBar gives publishers and advertisers a more efficient and effective way to elevate brand awareness and engagement while improving the audiences video viewing experience. LogoBar was the first to be awarded with IAB Tech Lab’s VAST 3.0 and VPAID 2.0 compliance.****** 
+
+******BENEFITS INCLUDE:
+Stronger performance than standard pre-rolls (Based on Nielsen and Newlio study, August 2016)
+58% higher CTRs; 21% higher brand recall; 67% higher likelihood to engage
+51% less intrusive and 15X higher user retention.
+Great for live streaming content, branded content, content syndication, AVOD and sponsorships.
+New non-cannibalizing inventory generating incremental revenue without having to develop more content
+Premium solution to package/sell adding value to existing ads
+Stronger performance leads to higher client retention
+Guaranteed visibility
+Not susceptible to ad blocking
+LogoBar is VAST 3.0 and VPAID 2.0 compliant. Below are a sample plugin and LogoBar VAST tag that you can add to any standard JW Player javascript embed instance with a Premium license or above. Learn more at****** [logobar.tv](http://logobar.tv/)
+
+
+```js
+Add the following plugin as a script tag on your page:
+
+"https://cdn2.logobar.tv/plugin/jw/lbplugin4jw.min.js"
+
+```
+##### Then add the following VAST tag next to your JW player instance:
+
+```javascript
+
+<script type="text/javascript">
+
+	var lbvast = ["https://vast.logobar.tv/lbvast.php?cid=90kre6s5c66m"];
+
+</script>
+```
+
+---
 ##### Audio Streaming + Metadata
 ###### Extract timed metadata from a live audio stream and use it to display information such as title, artist, and poster image.
 
